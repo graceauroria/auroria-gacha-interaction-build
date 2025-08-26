@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width=1500 height=3000 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -59,7 +59,7 @@
         frameworkUrl: buildUrl + "/AuroriaGachaInteraction.framework.js",
         codeUrl: buildUrl + "/AuroriaGachaInteraction.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
+        companyName: "Auroriaverse",
         productName: "auroria-gacha-interaction-unity",
         productVersion: "0.1.0",
         showBanner: unityShowBanner,
@@ -98,8 +98,8 @@
 
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        canvas.style.width = "1500px";
+        canvas.style.height = "3000px";
       }
 
       document.querySelector("#unity-loading-bar").style.display = "block";
@@ -117,16 +117,15 @@
 
                 // Add your message listener here
                 window.addEventListener('message', function(event) {
-                  if (event.origin === 'https://www.auroriaverse.com') {
-                    unityInstance.SendMessage('WebGLCommunication', 'ReceiveMessageFromWix', JSON.stringify(event.data));
-                  }
+                    if (event.origin === 'https://www.auroriaverse.com') {
+                        unityInstance.SendMessage('WebGLCommunication', 'ReceiveMessageFromWix', JSON.stringify(event.data));
+                    }
                 });
 
               }).catch((message) => {
                 alert(message);
               });
-
-      };
+            };
 
       document.body.appendChild(script);
 
