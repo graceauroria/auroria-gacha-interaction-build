@@ -118,7 +118,14 @@
               }).catch((message) => {
                 alert(message);
               });
-            };
+
+        // Add your message listener here
+        window.addEventListener('message', function(event) {
+          if (event.origin === 'https://www.auroriaverse.com') {
+            unityInstance.SendMessage('WebGLCommunication', 'ReceiveMessageFromWix', JSON.stringify(event.data));
+          }
+        });
+      };
 
       document.body.appendChild(script);
 
