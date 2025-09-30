@@ -114,6 +114,13 @@
                 document.querySelector("#unity-fullscreen-button").onclick = () => {
                   unityInstance.SetFullscreen(1);
                 };
+                
+                // Add your message listener here
+                window.addEventListener('message', function(event) {
+                    if (event.origin === 'https://www.auroriaverse.com') {
+                        unityInstance.SendMessage('WebGLCommunication', 'ReceiveMessageFromWix', JSON.stringify(event.data));
+                    }
+                });
 
               }).catch((message) => {
                 alert(message);
