@@ -123,6 +123,7 @@
                 });
 
                 window.addEventListener('changeSize', function(event) {
+                  console.log("changeSize is called: " + JSON.stringify(event.data));
                   const w = event.data.width;
                   const h = event.data.height;
                   canvas.style.width = w + "px";
