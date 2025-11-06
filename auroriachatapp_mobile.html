@@ -122,6 +122,13 @@
                     }
                 });
 
+                window.addEventListener('changeSize', function(event) {
+                  const w = event.data.width;
+                  const h = event.data.height;
+                  canvas.style.width = w + "px";
+                  canvas.style.height = h + "px";
+                });
+
               }).catch((message) => {
                 alert(message);
               });
